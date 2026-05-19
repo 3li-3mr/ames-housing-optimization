@@ -76,3 +76,23 @@ def run_and_plot(X, y, learning_rate=0.01, max_iter=1000, label="Gradient Descen
     plot_weight_path(a0_hist, a1_hist, algorithm_name=label)
 
     return a0, a1, n_iter
+
+
+# ─── Experiments ──────────────────────────────────────────────────────────────
+if __name__ == "__main__":
+    X, y = load_and_prep_data()
+
+    # Experiment 1: Normal learning rate
+    print("\n=== Experiment 1: alpha = 0.01 (normal convergence) ===")
+    run_and_plot(X, y, learning_rate=0.01, max_iter=1000,
+                 label="Gradient Descent (alpha=0.01)")
+
+    # Experiment 2: Too large — overshooting
+    print("\n=== Experiment 2: alpha = 1.0 (too large / overshooting) ===")
+    run_and_plot(X, y, learning_rate=1.0, max_iter=50,
+                 label="Gradient Descent (alpha=1.0 overshoot)")
+
+    # Experiment 3: Too small — slow convergence
+    print("\n=== Experiment 3: alpha = 0.0001 (too small / slow) ===")
+    run_and_plot(X, y, learning_rate=0.0001, max_iter=5000,
+                 label="Gradient Descent (alpha=0.0001 slow)")
