@@ -17,10 +17,6 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# Data files (Do not track large datasets or raw CSVs)
-data/*.csv
-data/*.zip
-
 # Figure outputs
 plots/*.png
 plots/*.pdf
