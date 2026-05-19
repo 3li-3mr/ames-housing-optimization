@@ -1,5 +1,6 @@
 import numpy as np
 from data_prep import load_and_prep_data, calculate_sse_loss, compute_gradients
+from plotter import plot_loss_curve, plot_weight_path
 
 
 def gradient_descent(X, y, learning_rate=0.01, max_iter=1000, tol=1e-6):
@@ -57,3 +58,21 @@ def gradient_descent(X, y, learning_rate=0.01, max_iter=1000, tol=1e-6):
 
     print(f"[Gradient Descent] Reached max iterations ({max_iter}).")
     return a0, a1, loss_history, a0_history, a1_history, max_iter
+
+
+def run_and_plot(X, y, learning_rate=0.01, max_iter=1000, label="Gradient Descent"):
+    """
+    Runs gradient descent and saves both plots (loss curve + weight path).
+    """
+    a0, a1, loss_hist, a0_hist, a1_hist, n_iter = gradient_descent(
+        X, y, learning_rate=learning_rate, max_iter=max_iter
+    )
+
+    print(f"  Final weights  ->  a0 = {a0:.6f},  a1 = {a1:.6f}")
+    print(f"  Final SSE loss ->  {loss_hist[-1]:.6f}")
+    print(f"  Iterations     ->  {n_iter}")
+
+    plot_loss_curve(loss_hist, algorithm_name=label)
+    plot_weight_path(a0_hist, a1_hist, algorithm_name=label)
+
+    return a0, a1, n_iter
