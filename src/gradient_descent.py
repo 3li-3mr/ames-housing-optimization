@@ -38,9 +38,6 @@ def gradient_descent(X, y, learning_rate=0.01, max_iter=1000, tol=1e-6):
 
 
 def run_and_plot(X, y, learning_rate=0.01, max_iter=1000, label="Gradient Descent"):
-    """
-    Runs gradient descent and saves both plots (loss curve + weight path).
-    """
     a0, a1, loss_hist, a0_hist, a1_hist, n_iter = gradient_descent(
         X, y, learning_rate=learning_rate, max_iter=max_iter
     )
