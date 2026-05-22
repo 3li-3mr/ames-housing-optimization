@@ -30,18 +30,8 @@ def calculate_sse_loss(X, y, a0, a1):
     return 0.5 * np.sum((y - y_pred)**2)
 
 
-# =====================================================================
-# CALCULUS HELPERS FOR TEAMMATES
-# =====================================================================
-
 def compute_gradients(X, y, a0, a1):
-    """
-    Computes the partial derivatives of the SSE loss function with 
-    respect to a0 and a1. 
-    
-    For Person 2 (Gradient Descent): Use this in your update loop.
-    Returns: A numpy array [gradient_a0, gradient_a1]
-    """
+
     y_pred = predict(X, a0, a1)
     error = y - y_pred
     
@@ -53,14 +43,7 @@ def compute_gradients(X, y, a0, a1):
 
 
 def compute_hessian(X):
-    """
-    Computes the 2x2 Hessian matrix of second derivatives.
-    Because our loss function is a sum of squares, the Hessian 
-    only depends on the X values and remains constant.
-    
-    For Person 3 (Newton's Method): Use this in your update rule.
-    Returns: A 2x2 numpy array representing the Hessian matrix.
-    """
+
     N = len(X)
     sum_x = np.sum(X)
     sum_x2 = np.sum(X**2)

@@ -9,9 +9,7 @@ PLOT_DIR = os.path.join(PROJECT_ROOT, 'plots')
 os.makedirs(PLOT_DIR, exist_ok=True)
 
 def plot_loss_curve(loss_history, algorithm_name="Algorithm"):
-    """
-    Plots the Loss (SSE) over iterations and saves it to the plots folder.
-    """
+
     plt.figure(figsize=(8, 5))
     
     # Styling the line and markers
@@ -35,9 +33,7 @@ def plot_loss_curve(loss_history, algorithm_name="Algorithm"):
 
 
 def plot_weight_path(a0_history, a1_history, algorithm_name="Algorithm"):
-    """
-    Plots the path of weights (a0, a1) over iterations.
-    """
+
     plt.figure(figsize=(8, 5))
     
     # Plot the path the weights took

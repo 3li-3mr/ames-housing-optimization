@@ -4,33 +4,6 @@ from plotter import plot_loss_curve, plot_weight_path
 
 
 def newton_method(X, y, learning_rate=1.0, max_iter=100, tol=1e-6):
-    """
-    Damped Newton's Method for Linear Regression.
-
-    Update rule (matrix form):
-        [a0, a1](k+1) = [a0, a1](k) - alpha * H^-1 * J
-
-    Where:
-        J  : Jacobian (gradient vector) of the loss w.r.t. [a0, a1]
-        H  : Hessian matrix (matrix of second derivatives)
-        alpha : damping factor (learning rate)
-
-    Parameters
-    ----------
-    X             : normalized feature array
-    y             : normalized target array
-    learning_rate : damping factor alpha (1.0 = full Newton step)
-    max_iter      : maximum number of iterations
-    tol           : convergence tolerance on the gradient norm
-
-    Returns
-    -------
-    a0, a1        : learned parameters
-    loss_history  : SSE loss at every iteration
-    a0_history    : a0 value at every iteration
-    a1_history    : a1 value at every iteration
-    n_iter        : actual number of iterations until convergence
-    """
 
     # Initialise weights at zero
     a0 = 0.0
